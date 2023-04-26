@@ -21,27 +21,30 @@ You will be graded on the level of detail in each ticket, the clarity of the exe
 In order to allow facilities to use thier own ID for each agent, we need to allow that custom ID to be stored in our database.
 
 - The new column must have a unique contraint so that each agent has a custom ID that can not be the same as another
-- THe new column should not allow NULL
-- After creating the new column (e.g. `custom_id`), set the value of the column in each row as the internal ID. For example if a record in the agents table currently has an ID of `35af7241-7e80-4057-a426-ac1812bd8118`, then the value of the new column, `custom_id` should also be `35af7241-7e80-4057-a426-ac1812bd8118`.
+- The new column should not allow NULL
+- After creating the new column (e.g. `custom_id`), set the value of the column in each row as the internal ID. For example if a record in the Agents table currently has an ID of `35af7241-7e80-4057-a426-ac1812bd8118`, then the value of the new column, `custom_id` should also be `35af7241-7e80-4057-a426-ac1812bd8118`.
 
 **A.C.**
 When SELECTing all fields for an agent, each record should have an `id` and a `custom_id` column both with the same value.
+
 **Story points: 3**
 
 ### 2. Add the custom agent ID to the returned metadata in the list of shifts
 
-Modify the function `getShiftsByFacility`, to also return the new custom agent ID when fetching all Shifts that have been worked this quarter.
+Modify the function `getShiftsByFacility`, to return the new custom agent ID when fetching all shifts that have been worked in the current quarter.
 
 **A.C.**
 When the API method `getShiftsByFacility` is called, within the response, the metadata for each agent shouold now have both an `id` and a `custom_id`.
+
 **Story points: 1**
 
 ### 3. Clearly label the ID's and custom ID's on the shift report
 
-When generating the report for list of shifts it should be clear which ID is ours (clipboard health) and which is the custom ID. Assuming that the report is a CSV in PDF format, then the ID from our database should be represented by a column called `internal ID`, and the custom ID should be represented by a column called `ID`
+When generating the report for list of shifts, it should be clear which ID is ours (clipboard health) and which is the custom ID. [Assuming that the report is a CSV in PDF format], The ID from our database should be represented by a column called `internal ID`, and the custom ID should be represented by a column called `ID` on the generated PDF
 
 **A.C.**
 The generated report should list both an "internal ID" (which is provided from the `id` field in the agent metadata from `getShiftsByFacility`) and an "ID" (which is provided from the `custom_id` field in the agent metadata from `getShiftsByFacility`)
+
 **Story points: 1**
 
 ### Assumptions

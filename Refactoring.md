@@ -10,4 +10,8 @@ You will be graded on the exhaustiveness and quality of your unit tests, the dep
 
 ## Your Explanation Here
 
-An indicator of unreadable/complicated code, is multiple nested if/else statements, my first goal is to remove those because it can be quite hard to follow. I also noticed that there were two or more instances of overwriting a variable (`let candidate`) I chose to replace those with function calls so that each step of the `deterministicPartitionKey` could be tested.
+An indicator of unreadable/complicated code, is multiple nested if/else statements, my first goal is to remove those because it can be quite hard to follow.
+
+I also noticed that there were two or more instances of overwriting a variable (e.g. `let candidate`) I chose to replace those with function calls so that each step of the `deterministicPartitionKey` could be tested.
+
+Whilst I added two functions I belive the readability to be greatly improved overall. The end result is more testable, and the flow is easier to fathom.
